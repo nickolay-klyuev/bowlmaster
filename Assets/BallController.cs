@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    public float speed = 100f;
+    public Vector3 velocity;
 
     // Start is called before the first frame update
     void Start()
     {
         Rigidbody rigidbody = GetComponent<Rigidbody>();
-        rigidbody.velocity = new Vector3(0, 0, speed);
+        rigidbody.velocity = velocity;
 
         AudioSource audio = GetComponent<AudioSource>();
         audio.Play();
