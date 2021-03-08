@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4504422, g: 0.50044614, b: 0.5752024, a: 1}
+  m_IndirectSpecularColor: {r: 0.4504423, g: 0.50044584, b: 0.57520235, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -305,6 +305,7 @@ GameObject:
   - component: {fileID: 584320355}
   - component: {fileID: 584320357}
   - component: {fileID: 584320356}
+  - component: {fileID: 584320358}
   m_Layer: 5
   m_Name: Touch Input
   m_TagString: Untagged
@@ -369,6 +370,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584320354}
   m_CullTransparentMesh: 1
+--- !u!114 &584320358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584320354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8183907664958535129}
+          m_TargetAssemblyTypeName: DragLaunch, Assembly-CSharp
+          m_MethodName: DragStart
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8183907664958535129}
+          m_TargetAssemblyTypeName: DragLaunch, Assembly-CSharp
+          m_MethodName: DragEnd
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &617228858
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,7 +686,6 @@ GameObject:
   m_Component:
   - component: {fileID: 822916445}
   - component: {fileID: 822916444}
-  - component: {fileID: 822916443}
   m_Layer: 0
   m_Name: Top View
   m_TagString: Untagged
@@ -648,14 +693,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &822916443
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822916442}
-  m_Enabled: 1
 --- !u!20 &822916444
 Camera:
   m_ObjectHideFlags: 0
@@ -1076,3 +1113,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a7db488a204d76ca9b7815dd2c56103, type: 3}
+--- !u!114 &8183907664958535129 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3542986264458864955, guid: 2a7db488a204d76ca9b7815dd2c56103, type: 3}
+  m_PrefabInstance: {fileID: 8183907664958535128}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921812451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6001077e3dd16fe5f852e956166de3aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
