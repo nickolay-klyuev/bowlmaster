@@ -8,6 +8,7 @@ public class BallController : MonoBehaviour
 
     private Rigidbody thisRigidbody;
     private AudioSource thisAudio;
+    private bool isBallLaunched = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +25,14 @@ public class BallController : MonoBehaviour
         
     }
 
+    public bool IsBallLaunched()
+    {
+        return isBallLaunched;
+    }
+
     public void Launch(Vector3 velocity)
     {
+        isBallLaunched = true;
         thisRigidbody.useGravity = true;
         thisRigidbody.velocity = velocity;
         thisAudio.Play();

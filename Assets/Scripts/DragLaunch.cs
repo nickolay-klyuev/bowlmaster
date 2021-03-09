@@ -15,6 +15,24 @@ public class DragLaunch : MonoBehaviour
         ballController = GetComponent<BallController>();
     }
 
+    public void MoveStart(float amount)
+    {
+        if (ballController.IsBallLaunched())
+        {
+            return;
+        }
+
+        float ballX = ballController.transform.position.x + amount;
+        float thisAmount = amount;
+
+        if (ballX > 50 || ballX < -50)
+        {
+            thisAmount = 0;
+        }
+
+        ballController.transform.position += new Vector3(thisAmount, 0, 0);
+    }
+
     public void DragStart()
     {
         dragStart = Input.mousePosition;
