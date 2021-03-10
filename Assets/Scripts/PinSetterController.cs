@@ -7,6 +7,8 @@ public class PinSetterController : MonoBehaviour
 {
     public Text standingDisplay;
 
+    private bool ballEnteredBox = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,5 +36,26 @@ public class PinSetterController : MonoBehaviour
         }
 
         return count;
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        GameObject that = collider.gameObject;
+
+        if (that.GetComponent<BallController>() != null)
+        {
+            ballEnteredBox = true;
+            standingDisplay.color = Color.red;
+        }
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        GameObject that = collider.gameObject;
+
+        if (that.GetComponentInParent<PinController>() != null)
+        {
+            Destroy(that.transform.parent.gameObject);
+        }
     }
 }
