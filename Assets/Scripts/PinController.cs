@@ -8,8 +8,8 @@ public class PinController : MonoBehaviour
 
     public bool IsStanding()
     {
-        if (Mathf.Abs(transform.rotation.eulerAngles.x) < standingThreshold && 
-            Mathf.Abs(transform.rotation.eulerAngles.z) < standingThreshold)
+        if (Mathf.Abs(transform.rotation.x) < standingThreshold && 
+            Mathf.Abs(transform.rotation.z) < standingThreshold)
         {
             return true;
         }
