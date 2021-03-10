@@ -198,4 +198,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40dbf42e36cf4606a9e42734c326fbdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standingThreshold: 75
+  standingThreshold: 25
