@@ -9,6 +9,7 @@ public class BallController : MonoBehaviour
     private Rigidbody thisRigidbody;
     private AudioSource thisAudio;
     private bool isBallLaunched = false;
+    private Vector3 startBallPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,8 @@ public class BallController : MonoBehaviour
         thisAudio = GetComponent<AudioSource>();
         
         thisRigidbody.useGravity = false;
+
+        startBallPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -36,5 +39,16 @@ public class BallController : MonoBehaviour
         thisRigidbody.useGravity = true;
         thisRigidbody.velocity = velocity;
         thisAudio.Play();
+    }
+
+    public void Reset()
+    {
+        isBallLaunched = false;
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+        transform.position = startBallPosition;
+
+        rb.velocity = new Vector3(0, 0, 0);
+        rb.angularVelocity = new Vector3(0, 0, 0);
     }
 }

@@ -17,9 +17,9 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float z = transform.position.z;
+        float z = ball.transform.position.z;
 
-        if (z < 1500f)
+        if (z < 1800f)
         {
             transform.position = ball.transform.position + offset;
         }

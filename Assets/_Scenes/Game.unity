@@ -1266,6 +1266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311971d969f4e947b8cd6e26899a884f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastStandingCount: -1
   standingDisplay: {fileID: 405953418}
 --- !u!33 &1086785060
 MeshFilter:
@@ -1752,8 +1753,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627734149}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 730.89954, y: 147.70142, z: -31.520569}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1932126032}
@@ -1786,7 +1787,7 @@ VideoPlayer:
   - 0.5
   m_Url: 
   m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 01
+  m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
