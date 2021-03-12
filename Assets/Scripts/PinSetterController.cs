@@ -7,6 +7,7 @@ public class PinSetterController : MonoBehaviour
 {
     public int lastStandingCount = -1;
     public Text standingDisplay;
+    public GameObject pinsPrefab;
 
     private bool ballEnteredBox = false;
     private float lastChangeTime;
@@ -47,7 +48,7 @@ public class PinSetterController : MonoBehaviour
 
     public void RenewPins()
     {
-
+        Instantiate(pinsPrefab, new Vector3(0, 50, 0), Quaternion.identity);
     }
 
     void CheckStanding()

@@ -323,7 +323,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195384611}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b9f6365729fb645df893eb90884f9283, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1481,8 +1481,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastStandingCount: -1
-  distanceToRaise: 0.4
   standingDisplay: {fileID: 405953418}
+  pinsPrefab: {fileID: 4100875586212053565, guid: f52852c9e866d9a40863c9cad2ca7d67, type: 3}
 --- !u!33 &1086785060
 MeshFilter:
   m_ObjectHideFlags: 0
