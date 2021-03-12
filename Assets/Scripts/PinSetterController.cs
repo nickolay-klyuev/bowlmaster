@@ -6,16 +6,18 @@ using UnityEngine.UI;
 public class PinSetterController : MonoBehaviour
 {
     public int lastStandingCount = -1;
-
+    public float distanceToRaise = 0.40f;
     public Text standingDisplay;
 
     private bool ballEnteredBox = false;
     private float lastChangeTime;
     private BallController ballController;
+    private PinController[] pinControllers;
 
     // Start is called before the first frame update
     void Start()
     {
+        pinControllers = GameObject.FindObjectsOfType<PinController>();
         ballController = GameObject.FindObjectOfType<BallController>();
     }
 
@@ -28,6 +30,27 @@ public class PinSetterController : MonoBehaviour
         {
             CheckStanding();
         }
+    }
+
+    public void RaisePins()
+    {
+        /*foreach(PinController pinController in pinControllers)
+        {
+            if (pinController.IsStanding())
+            {
+                pinController.transform.Translate(new Vector3(0, distanceToRaise, 0));
+            }
+        }*/
+    }
+
+    public void LowerPins()
+    {
+        
+    }
+
+    public void RenewPins()
+    {
+
     }
 
     void CheckStanding()
@@ -59,8 +82,6 @@ public class PinSetterController : MonoBehaviour
     public int CountStanding()
     {
         int count = 0;
-
-        PinController[] pinControllers = GameObject.FindObjectsOfType<PinController>();
 
         foreach(PinController pinController in pinControllers)
         {
