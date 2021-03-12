@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PinSetterController : MonoBehaviour
 {
     public int lastStandingCount = -1;
-    public float distanceToRaise = 0.40f;
     public Text standingDisplay;
 
     private bool ballEnteredBox = false;
@@ -32,17 +31,17 @@ public class PinSetterController : MonoBehaviour
 
     public void RaisePins()
     {
-
+        foreach(PinController pinController in GameObject.FindObjectsOfType<PinController>())
+        {
+            pinController.RaiseIfStanding();
+        }
     }
 
     public void LowerPins()
     {
         foreach(PinController pinController in GameObject.FindObjectsOfType<PinController>())
         {
-            if (pinController.IsStanding())
-            {
-                pinController.transform.Translate(new Vector3(0, distanceToRaise, 0));
-            }
+            pinController.Lower();
         }
     }
 
