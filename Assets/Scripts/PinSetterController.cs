@@ -12,12 +12,10 @@ public class PinSetterController : MonoBehaviour
     private bool ballEnteredBox = false;
     private float lastChangeTime;
     private BallController ballController;
-    private PinController[] pinControllers;
 
     // Start is called before the first frame update
     void Start()
     {
-        pinControllers = GameObject.FindObjectsOfType<PinController>();
         ballController = GameObject.FindObjectOfType<BallController>();
     }
 
@@ -34,18 +32,18 @@ public class PinSetterController : MonoBehaviour
 
     public void RaisePins()
     {
-        /*foreach(PinController pinController in pinControllers)
+
+    }
+
+    public void LowerPins()
+    {
+        foreach(PinController pinController in GameObject.FindObjectsOfType<PinController>())
         {
             if (pinController.IsStanding())
             {
                 pinController.transform.Translate(new Vector3(0, distanceToRaise, 0));
             }
-        }*/
-    }
-
-    public void LowerPins()
-    {
-        
+        }
     }
 
     public void RenewPins()
@@ -82,6 +80,8 @@ public class PinSetterController : MonoBehaviour
     public int CountStanding()
     {
         int count = 0;
+
+        PinController[] pinControllers = GameObject.FindObjectsOfType<PinController>();
 
         foreach(PinController pinController in pinControllers)
         {

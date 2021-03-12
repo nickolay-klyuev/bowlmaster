@@ -1481,6 +1481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastStandingCount: -1
+  distanceToRaise: 0.4
   standingDisplay: {fileID: 405953418}
 --- !u!33 &1086785060
 MeshFilter:
@@ -1502,7 +1503,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e84fec64467d6cc9bb80be400875b042, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
