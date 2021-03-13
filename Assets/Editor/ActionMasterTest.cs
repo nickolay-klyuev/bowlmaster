@@ -5,12 +5,21 @@ using UnityEngine;
 using UnityEngine.TestTools;
 
 [TestFixture]
-public class ScoreMasterTest
+public class ActionMasterTest
 {
+    private ActionMaster.Action endTurn = ActionMaster.Action.EndTurn;
+
     [Test]
     public void FailingTest()
     {
         Assert.AreEqual(1, 1);
+    }
+
+    [Test]
+    public void T01OneStrikeReturnEndTurn()
+    {
+        ActionMaster actionMaster = new ActionMaster();
+        Assert.AreEqual(endTurn, actionMaster.Bowl(10));
     }
     
     
