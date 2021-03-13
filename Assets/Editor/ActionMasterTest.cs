@@ -8,6 +8,14 @@ using UnityEngine.TestTools;
 public class ActionMasterTest
 {
     private ActionMaster.Action endTurn = ActionMaster.Action.EndTurn;
+    private ActionMaster.Action tidy = ActionMaster.Action.Tidy;
+    private ActionMaster actionMaster;
+
+    [SetUp]
+    public void Setup()
+    {
+        actionMaster = new ActionMaster();
+    }
 
     [Test]
     public void FailingTest()
@@ -18,26 +26,19 @@ public class ActionMasterTest
     [Test]
     public void T01OneStrikeReturnEndTurn()
     {
-        ActionMaster actionMaster = new ActionMaster();
         Assert.AreEqual(endTurn, actionMaster.Bowl(10));
     }
     
-    
-    
-    /*// A Test behaves as an ordinary method
     [Test]
-    public void ScoreMasterTestSimplePasses()
+    public void T02Bowl8ReturnsTidy()
     {
-        // Use the Assert class to test conditions
+        Assert.AreEqual(tidy, actionMaster.Bowl(8));
     }
 
-    // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-    // `yield return null;` to skip a frame.
-    [UnityTest]
-    public IEnumerator ScoreMasterTestWithEnumeratorPasses()
+    [Test]
+    public void T03Bowl28SpareReturnsEndTurn()
     {
-        // Use the Assert class to test conditions.
-        // Use yield to skip a frame.
-        yield return null;
-    }*/
+        actionMaster.Bowl(8);
+        Assert.AreEqual(endTurn, actionMaster.Bowl(2));
+    }
 }
