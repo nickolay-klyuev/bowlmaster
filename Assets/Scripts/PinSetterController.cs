@@ -8,10 +8,10 @@ public class PinSetterController : MonoBehaviour
     public int lastStandingCount = -1;
     public Text standingDisplay;
     public GameObject pinsPrefab;
-
     private bool ballEnteredBox = false;
     private float lastChangeTime;
     private BallController ballController;
+    private int lastSettledCount = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -71,6 +71,9 @@ public class PinSetterController : MonoBehaviour
 
     void PinsHaveSettled()
     {
+        int pinsFall = lastSettledCount = CountStanding();
+        lastSettledCount = CountStanding();
+
         ballController.Reset();
         lastStandingCount = -1;
         ballEnteredBox = false;
