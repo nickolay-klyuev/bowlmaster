@@ -11,12 +11,15 @@ public class PinSetterController : MonoBehaviour
     private bool ballEnteredBox = false;
     private float lastChangeTime;
     private BallController ballController;
+    private ActionMaster actionMaster = new ActionMaster();
+    private Animator animator;
     private int lastSettledCount = 10;
 
     // Start is called before the first frame update
     void Start()
     {
         ballController = GameObject.FindObjectOfType<BallController>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -71,13 +74,38 @@ public class PinSetterController : MonoBehaviour
 
     void PinsHaveSettled()
     {
-        int pinsFall = lastSettledCount = CountStanding();
-        lastSettledCount = CountStanding();
+        int standing = CountStanding();
+        int pinsFall = lastSettledCount - standing;
+        lastSettledCount = standing;
+        ActionMaster.Action action = actionMaster.Bowl(pinsFall);
+
+        if (action == ActionMaster.Action.Tidy)
+        {
+            animator.SetTrigger("tidyTrigger");
+        }
+        else if (action == ActionMaster.Action.EndTurn)
+        {
+            ResetTrigger();
+        }
+        else if (action == ActionMaster.Action.Reset)
+        {
+            ResetTrigger();
+        }
+        else if (action == ActionMaster.Action.EndGame)
+        {
+            throw new UnityException("Don't exist yet");
+        }
 
         ballController.Reset();
         lastStandingCount = -1;
         ballEnteredBox = false;
         standingDisplay.color = Color.green;
+    }
+
+    private void ResetTrigger()
+    {
+        animator.SetTrigger("resetTrigger");
+        lastSettledCount = 10;
     }
 
     public int CountStanding()
