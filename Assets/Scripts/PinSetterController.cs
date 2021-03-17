@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class PinSetterController : MonoBehaviour
 {
-    public int lastStandingCount = -1;
     public Text standingDisplay;
     public GameObject pinsPrefab;
-    private bool ballEnteredBox = false;
+    
+    private bool ballOutOfPlay = false;
+    private int lastStandingCount = -1;
     private float lastChangeTime;
     private BallController ballController;
     private ActionMaster actionMaster = new ActionMaster();
@@ -27,9 +28,10 @@ public class PinSetterController : MonoBehaviour
     {
         standingDisplay.text = CountStanding().ToString();
         
-        if (ballEnteredBox)
+        if (ballOutOfPlay)
         {
             CheckStanding();
+            standingDisplay.color = Color.red;
         }
     }
 
@@ -98,7 +100,7 @@ public class PinSetterController : MonoBehaviour
 
         ballController.Reset();
         lastStandingCount = -1;
-        ballEnteredBox = false;
+        ballOutOfPlay = false;
         standingDisplay.color = Color.green;
     }
 
@@ -125,16 +127,16 @@ public class PinSetterController : MonoBehaviour
         return count;
     }
 
-    void OnTriggerEnter(Collider collider)
+    /*void OnTriggerEnter(Collider collider)
     {
         GameObject that = collider.gameObject;
 
         if (that.GetComponent<BallController>() != null)
         {
-            ballEnteredBox = true;
+            ballOutOfPlay = true;
             standingDisplay.color = Color.red;
         }
-    }
+    }*/
 
     void OnTriggerExit(Collider collider)
     {
@@ -144,5 +146,10 @@ public class PinSetterController : MonoBehaviour
         {
             Destroy(that.transform.parent.gameObject);
         }
+    }
+
+    public void SetBallOutOfPlay(bool isOut)
+    {
+        ballOutOfPlay = isOut;
     }
 }
