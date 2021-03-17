@@ -35,10 +35,13 @@ public class BallController : MonoBehaviour
 
     public void Launch(Vector3 velocity)
     {
-        isBallLaunched = true;
-        thisRigidbody.useGravity = true;
-        thisRigidbody.velocity = velocity;
-        thisAudio.Play();
+        if (isBallLaunched == false)
+        {
+            isBallLaunched = true;
+            thisRigidbody.useGravity = true;
+            thisRigidbody.velocity = velocity;
+            thisAudio.Play();
+        }
     }
 
     public void Reset()

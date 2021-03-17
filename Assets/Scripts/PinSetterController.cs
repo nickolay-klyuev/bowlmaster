@@ -127,17 +127,6 @@ public class PinSetterController : MonoBehaviour
         return count;
     }
 
-    /*void OnTriggerEnter(Collider collider)
-    {
-        GameObject that = collider.gameObject;
-
-        if (that.GetComponent<BallController>() != null)
-        {
-            ballOutOfPlay = true;
-            standingDisplay.color = Color.red;
-        }
-    }*/
-
     void OnTriggerExit(Collider collider)
     {
         GameObject that = collider.gameObject;
