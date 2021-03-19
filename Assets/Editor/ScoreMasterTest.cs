@@ -18,7 +18,7 @@ public class ScoreMasterTest {
 		int[] frames = { 5};
 		Assert.AreEqual (frames.ToList(), ScoreMaster.ScoreFrames (rolls.ToList()));
 	}
-/* 
+ 
 	[Test]
 	public void T02Bowl234 () {
 		int[] rolls = {2,3,4};
@@ -81,7 +81,7 @@ public class ScoreMasterTest {
 		int[] frames = { 3,   8,  13,   6};
 		Assert.AreEqual (frames.ToList(), ScoreMaster.ScoreFrames (rolls.ToList()));
 	}
-
+/*
 	[Test]
 	public void T11SpareBonus2 () {
 		int[] rolls = {1,2, 3,5, 5,5, 3,3, 7,1, 9,1, 6};

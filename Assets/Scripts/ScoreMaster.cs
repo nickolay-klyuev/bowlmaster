@@ -22,6 +22,22 @@ public class ScoreMaster
     {
         List<int> frameList = new List<int>();
 
+        for (int i = 1; i < rolls.Count; i += 2)
+        {
+            int frame = rolls[i - 1] + rolls[i];
+            
+            if (frame >= 10 && rolls.Count > i + 1)
+            {
+                frame += rolls[i + 1];
+            }
+            else if (frame >= 10)
+            {
+                continue;
+            }
+
+            frameList.Add(frame);
+        }
+
         return frameList;
     }
 }
