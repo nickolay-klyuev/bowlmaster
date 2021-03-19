@@ -24,20 +24,32 @@ public class ScoreMaster
 
         for (int i = 1; i < rolls.Count; i += 2)
         {
-            int frame = rolls[i - 1] + rolls[i];
-            
-            if (frame >= 10 && rolls.Count > i + 1)
+            if (frameList.Count == 10)
             {
-                frame += rolls[i + 1];
-            }
-            else if (frame >= 10)
-            {
-                continue;
+                break;
             }
 
-            frameList.Add(frame);
+            if (rolls[i - 1] + rolls[i] < 10)
+            {
+                frameList.Add(rolls[i - 1] + rolls[i]);
+            }
+
+            if (rolls.Count - i <= 1)
+            {
+                break;
+            }
+
+            if (rolls[i - 1] == 10)
+            {
+                i--;
+                frameList.Add(10 + rolls[i + 1] + rolls[i + 2]);
+            }
+            else if (rolls[i - 1] + rolls[i] == 10)
+            {
+                frameList.Add(10 + rolls[i + 1]);
+            }
         }
-
+        
         return frameList;
     }
 }
