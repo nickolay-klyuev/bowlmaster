@@ -10,18 +10,26 @@ public class PinSetterController : MonoBehaviour
     private ActionMaster actionMaster = new ActionMaster();
     private Animator animator;
     private PinCounter pinCounter;
+    private GameObject endScreen;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         pinCounter = GameObject.FindObjectOfType<PinCounter>();
+        endScreen = GameObject.Find("End Screen");
+        endScreen.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void LaunchAvailable()
+    {
+        pinCounter.SetAvailableColor();
     }
 
     public void RaisePins()
@@ -73,7 +81,7 @@ public class PinSetterController : MonoBehaviour
         }
         else if (action == ActionMaster.Action.EndGame)
         {
-            throw new UnityException("Don't exist yet");
+            endScreen.SetActive(true);
         }
     }
 }

@@ -47,7 +47,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5579227596356420413}
-  m_Material: {fileID: 13400000, guid: b9f6365729fb645df893eb90884f9283, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -199,4 +199,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standingThreshold: 0.2
-  distToRaise: 40
+  distToRaise: 30

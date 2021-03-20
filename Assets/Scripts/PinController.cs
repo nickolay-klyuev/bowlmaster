@@ -28,12 +28,6 @@ public class PinController : MonoBehaviour
         thisRigidbody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(Mathf.Abs(transform.rotation.z));
-    }
-
     public void RaiseIfStanding()
     {
         if (IsStanding())

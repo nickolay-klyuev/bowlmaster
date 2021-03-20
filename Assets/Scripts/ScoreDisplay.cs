@@ -6,6 +6,13 @@ using UnityEngine.UI;
 public class ScoreDisplay : MonoBehaviour
 {
     public Text[] rollTexts, frameTexts;
+    
+    private Text endScreenScore;
+
+    void Awake()
+    {
+        endScreenScore = GameObject.Find("End Screen").transform.Find("Score").GetComponent<Text>();
+    }
 
     public void FillRolls(List<int> rolls)
     {
@@ -21,6 +28,7 @@ public class ScoreDisplay : MonoBehaviour
         for (int i = 0; i < frames.Count; i++)
         {
             frameTexts[i].text = frames[i].ToString();
+            endScreenScore.text = frames[i].ToString();
         }
     }
 

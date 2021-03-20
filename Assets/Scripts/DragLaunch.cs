@@ -49,6 +49,16 @@ public class DragLaunch : MonoBehaviour
         float launchSpeedX = (dragEnd.x - dragStart.x) / dragDuration;
         float launchSpeedZ = (dragEnd.y - dragStart.y) / dragDuration;
 
+        if (launchSpeedZ < 500)
+        {
+            launchSpeedZ = 500;
+        }
+
+        if (launchSpeedX == 0)
+        {
+            launchSpeedX = Random.value * 10;
+        }
+
         Vector3 launchVelocity = new Vector3(launchSpeedX / 2, 0, launchSpeedZ);
 
         ballController.Launch(launchVelocity);

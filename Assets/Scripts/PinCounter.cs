@@ -39,6 +39,11 @@ public class PinCounter : MonoBehaviour
         }
     }
 
+    public void SetAvailableColor()
+    {
+        standingDisplay.color = Color.green;
+    }
+
     void CheckStanding()
     {
         int currentStanding = CountStanding();
