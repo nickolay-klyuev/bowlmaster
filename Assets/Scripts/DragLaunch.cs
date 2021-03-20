@@ -35,6 +35,12 @@ public class DragLaunch : MonoBehaviour
 
     public void DragStart()
     {
+        GameObject tutorial = GameObject.Find("Tutorial");
+        if (tutorial != null)
+        {
+            Destroy(tutorial);
+        }
+
         dragStart = Input.mousePosition;
         timeStart = Time.time;
     }
